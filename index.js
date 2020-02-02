@@ -21,17 +21,8 @@ function draw() {
 }
 
 function testLines(){
-  const rando = random(1)
-  let numShapes
-  // configure rule
-  if(rando > 0.5){
-    numShapes = SIDES
-  } else{
-    numShapes = SIDES * 2
-  }
-
-  const rando2 = floor(random(0, PALETTE.length))
-  const strokeColor = PALETTE[rando2]
+  let numShapes = randomSelectTwo() ? SIDES : SIDES * 2
+  const strokeColor = getRandomFromPalette()
 
   noFill()
   stroke(PALETTE[0])
@@ -46,4 +37,20 @@ function testLines(){
       rotate(angle)
     }
   pop()
+}
+
+function randomSelectTwo(){
+  const rando = random(1)
+  let numShapes
+  // configure rule
+  if(rando > 0.5){
+    return true
+  } else{
+    return false
+  }
+}
+
+function getRandomFromPalette(){
+  const rando2 = floor(random(0, PALETTE.length)) 
+  return PALETTE[rando2]
 }

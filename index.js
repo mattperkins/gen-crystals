@@ -18,7 +18,8 @@ function setup() {
   const 
     totalX = START + GRIDBOX * COLUMNS
     totalY = START + GRIDBOX * ROWS
-  createCanvas(totalX,totalY, SVG)
+  // createCanvas(totalX,totalY, SVG) // SVG download not working
+  createCanvas(totalX,totalY)
   
   PALETTE = [ 
     color(255,52,154,250), // pink 

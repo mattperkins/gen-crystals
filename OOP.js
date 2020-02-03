@@ -25,7 +25,7 @@ class OutlineShape extends Layer{
     push()
     // translate(width/2, height/2)
     if(this.hexagonTrue){
-      hexagon(0,0, CRYSTAL_SIZE/2)
+      hexagon(0,0, CRYSTAL_SIZE/6) // 2
     } else{
       ellipse(0,0,CRYSTAL_SIZE, CRYSTAL_SIZE)
     }

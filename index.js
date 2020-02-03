@@ -17,9 +17,29 @@ function setup() {
 }
 
 function draw() {
+  circles()
   // simpleLines()
   // outlineShape()
   testLines() 
+}
+
+function circles(){
+  const numShapes = SIDES
+  const angle = 360 / numShapes
+  const shapeSize = (CRYSTAL_SIZE/2) * 0.93
+  const position = (CRYSTAL_SIZE/2) - (shapeSize/2)
+  const strokeColor = getRandomFromPalette()
+
+  stroke(strokeColor)
+  strokeWeight(1)
+  push()
+    translate(width/2, height/2)
+    
+    for(let i = 0; i <= numShapes; i++){
+      ellipse(position, 0, shapeSize, shapeSize)
+      rotate(angle)
+    }
+  pop()
 }
 
 function simpleLines(){

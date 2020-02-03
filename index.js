@@ -27,8 +27,8 @@ function setup() {
     color(50,50,50,10), // alpha
     color(180,180,180,50), // alpha
 
-    color(250,152,54,250), // pink 
-    color(100,100,52,250), // blue
+    color(250,152,54,250), // orange
+    color(100,100,52,250), // green
   ]
 
   noLoop()

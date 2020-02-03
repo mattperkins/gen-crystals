@@ -29,3 +29,24 @@ function getRandomFromPalette(){
   const rando2 = floor(random(0, PALETTE.length)) 
   return PALETTE[rando2]
 }
+
+
+function testLines(){
+  let numShapes = randomSelectTwo() ? SIDES : SIDES * 2
+  const strokeColor = getRandomFromPalette()
+
+  noFill()
+  stroke(PALETTE[0])
+  strokeWeight(1)
+  push()
+    translate(width/2, height/2)
+    ellipse(0,0,CRYSTAL_SIZE,CRYSTAL_SIZE)
+
+    stroke(strokeColor)
+    const angle = 360 / numShapes
+    for(let i = 0; i < numShapes; i++){
+      line(0,0,0, CRYSTAL_SIZE/2)
+      rotate(angle)
+    }
+  pop()
+}

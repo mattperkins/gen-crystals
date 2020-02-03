@@ -27,34 +27,15 @@ function draw() {
 
 // randomise shape/OOP
 function picker(){
-  let picker = random(1)
-
-  if(picker > 0.1){
-    layers.push(new DottedLines())
-  }
-  if(picker > 0.2){
-    layers.push(new CenteredShape())
-  }
-  if(picker > 0.1){
-    layers.push(new RingOfShapes())
-  }
-  if(picker > 0.2){
-    layers.push(new SteppedHexagon())
-  }
-
-
-  if(picker > 0.3){
-    layers.push(new OutlineShape())
-  }
   
-  if(picker > 0.5){
-    layers.push(new SimpleLines())
-  }
-
-  if(picker > 0.8){
-    layers.push(new Circles())
-  }
+  layerConstructors.forEach(lcon => {
+    let picker = random(1)
+    if(picker > lcon.weight){
+      layers.push(lcon.init())
+    }
+  })
 
   console.log(layers)
+
   layers.forEach(layer => layer.render())
 }

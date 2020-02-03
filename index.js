@@ -22,14 +22,19 @@ function setup() {
   createCanvas(totalX,totalY)
   
   PALETTE = [ 
-    color(255,52,154,250), // pink 
-    color(4,0,152,240), // blue
+    // pink
+    color(255,52,154,250),  
+    // blue
+    color(4,0,152,240), 
 
-    color(50,50,50,10), // alpha
-    color(180,180,180,50), // alpha
+    // greys
+    color(50,50,50,10), 
+    color(180,180,180,50),
 
-    color(250,152,54,250), // orange
-    color(100,100,52,250), // green
+    // orange
+    color(250,152,54,250), 
+    // green
+    color(100,100,52,250), 
   ]
 
   noLoop()

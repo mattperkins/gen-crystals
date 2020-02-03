@@ -2,7 +2,6 @@
 const 
   CRYSTAL_SIZE = 500
   SIDES = 6
-  layers = []
 let 
   PALETTE = []
 
@@ -24,22 +23,6 @@ function setup() {
 }
 
 function draw() {
-// OOP
-  picker()
-  // testLines() 
-} 
-
-// randomise shape/OOP
-function picker(){
-  
-  layerConstructors.forEach(lcon => {
-    let picker = random(1)
-    if(picker > lcon.weight){
-      layers.push(lcon.init())
-    }
-  })
-
-  console.log(layers)
-
-  layers.forEach(layer => layer.render())
+  const oneCrystal = new Crystal(width/2,height/2)
+  oneCrystal.render()
 }

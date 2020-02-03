@@ -1,8 +1,6 @@
 // GENERATIVE SYSTEM || RULE BASED DECISION MAKING
 const 
   CRYSTAL_SIZE = 150
-  SIDES        = 6
-  
   // Layout Grid
   MARGIN  = CRYSTAL_SIZE / 2
   COLUMNS = 6
@@ -11,7 +9,7 @@ const
   GRIDBOX = CRYSTAL_SIZE + PADDING
   START = (CRYSTAL_SIZE / 2) + MARGIN
 let 
-  PALETTE = []
+  PALETTE = null
   ALL_CRYSTALS = []
 
 function setup() {
@@ -20,21 +18,14 @@ function setup() {
     totalY = START + GRIDBOX * ROWS
   // createCanvas(totalX,totalY, SVG) // SVG download not working
   createCanvas(totalX,totalY)
-  
-  PALETTE = [ 
-    // pink
-    color(255,52,154,250),  
-    // blue
-    color(4,0,152,240), 
 
-    // greys
-    color(50,50,50,10), 
-    color(180,180,180,50),
-
-    // orange
-    color(250,152,54,250), 
-    // green
-    color(100,100,52,250), 
+  PALETTE = [
+    color(COLOUR1),  
+    color(COLOUR2),
+    color(COLOUR3), 
+    color(COLOUR4), 
+    // color(COLOUR5), 
+    color(COLOUR6) 
   ]
 
   noLoop()
@@ -43,7 +34,7 @@ function setup() {
 }
 
 function draw() {
-  // background('teal')
+
   for(let x = 0; x < COLUMNS; x++){
     for(let y = 0; y < ROWS; y++){
       const 

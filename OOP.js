@@ -1,14 +1,13 @@
-
 // OOP
 class Layer{
   constructor(){
     this.sides = SIDES
     this.numShapes = this.sides
-    this.angle = 360 / this.numShapes
-    this.stepsOut = 8
+    this.angle = LAYER_ANGLE / this.numShapes
+    this.stepsOut = STEPSOUT
     this.singleStep = (CRYSTAL_SIZE/2) / this.stepsOut
-    this.thinStroke = 1
-    this.thickStroke = 3
+    this.thinStroke = THINSTROKE
+    this.thickStroke = THICKSTROKE
     this.layerColor = getRandomFromPalette()
   }
 }
@@ -24,9 +23,10 @@ class OutlineShape extends Layer{
     stroke(this.layerColor)
     strokeWeight(this.weight)
     push()
-    // translate(width/2, height/2)
     if(this.hexagonTrue){
-      hexagon(0,0, CRYSTAL_SIZE/6) // 2
+      // control user input to avoid breaking design pattern
+      OUTLINESHAPE_HEXDIVIDE < 2 ? OUTLINESHAPE_HEXDIVIDE = 2 : OUTLINESHAPE_HEXDIVIDE
+      hexagon(0,0, CRYSTAL_SIZE/OUTLINESHAPE_HEXDIVIDE)
     } else{
       ellipse(0,0,CRYSTAL_SIZE, CRYSTAL_SIZE)
     }
@@ -37,26 +37,24 @@ class OutlineShape extends Layer{
 class SimpleLines extends Layer{
   constructor(){
     super()
-    this.numSteps = randomSelectTwo() ? this.stepsOut : parseInt(this.stepsOut * 1.25)
+    this.numSteps = randomSelectTwo() ? this.stepsOut : parseInt(this.stepsOut * SIMPLELINES_STEPSOUT_MULTI)
     this.step = (CRYSTAL_SIZE/2) / this.numSteps
     this.start = floor(random(0, this.numSteps))
     this.stop = floor(random(this.start, this.numSteps + 1))
-
-    this.numShapes = randomSelectTwo() ? this.sides : this.sides * 2
+    SIMPLELINES_SIDES_MULTI > 20 ? SIMPLELINES_SIDES_MULTI = 20 : SIMPLELINES_SIDES_MULTI
+    this.numShapes = randomSelectTwo() ? this.sides : this.sides * SIMPLELINES_SIDES_MULTI
     this.weight = randomSelectTwo() ? this.thinStroke : this.thickStroke
-    this.angle = 360 / this.numShapes
+    this.angle = SIMPLELINES_ANGLE / this.numShapes
   }
   render(){
     noFill()
     stroke(this.layerColor)
     strokeWeight(this.weight)
     push()
-      // translate(width/2, height/2)
-      
-      for(let i = 0; i < this.numShapes; i++){
-        line(this.start * this.step, 0 , this.stop * this.step, 0)
-        rotate(this.angle)
-      }
+    for(let i = 0; i < this.numShapes; i++){
+      line(this.start * this.step, 0 , this.stop * this.step, 0)
+      rotate(this.angle)
+    }
     pop()
   }
 }
@@ -64,21 +62,21 @@ class SimpleLines extends Layer{
 class Circles extends Layer{
   constructor(){
     super()
-    this.shapeSize = (CRYSTAL_SIZE/2) * 0.93
+    // control user input to avoid breaking design pattern
+    CIRCLES_SHAPESIZE_MULTI > 2.1 ? CIRCLES_SHAPESIZE_MULTI = 2.1 : CIRCLES_SHAPESIZE_MULTI
+    this.shapeSize = (CRYSTAL_SIZE/2) * CIRCLES_SHAPESIZE_MULTI
     this.position = (CRYSTAL_SIZE/2) - (this.shapeSize/2)
   }
-  // create a render function
+  // create the render function
   render(){
     noFill()
     stroke(this.layerColor)
     strokeWeight(1)
     push()
-      // translate(width/2, height/2)
-      
-      for(let i = 0; i <= this.numShapes; i++){
-        ellipse(this.position, 0, this.shapeSize, this.shapeSize)
-        rotate(this.angle)
-      }
+    for(let i = 0; i <= this.numShapes; i++){
+      ellipse(this.position, 0, this.shapeSize, this.shapeSize)
+      rotate(this.angle)
+    }
     pop()
   }
 }
@@ -86,16 +84,17 @@ class Circles extends Layer{
 class DottedLines extends Layer{
   constructor(){
     super()
-    this.numShapes = randomSelectTwo() ? this.sides : this.sides * 2
-    this.angle = 360 / this.numShapes
-    this.shapeSize = 3
+    DOTTEDLINES_SIDES_MULTI > 10 ? DOTTEDLINES_SIDES_MULTI = 10 : DOTTEDLINES_SIDES_MULTI
+    this.numShapes = randomSelectTwo() ? this.sides : this.sides * DOTTEDLINES_SIDES_MULTI
+    this.angle = DOTTEDLINES_ANGLE / this.numShapes
+    DOTTEDLINES_SHAPESIZE > 40 ? DOTTEDLINES_SHAPESIZE = 40 : DOTTEDLINES_SHAPESIZE
+    this.shapeSize = DOTTEDLINES_SHAPESIZE
     this.centerOffset = this.singleStep
   }
   render(){
     fill(this.layerColor)
     noStroke()
     push()
-    // translate(width/2, height/2)
     for(let i = 0; i <= this.numShapes; i++){
       for(let x = this.centerOffset; x < CRYSTAL_SIZE / 2; x += this.singleStep){
         rect(x, 0, this.shapeSize, this.shapeSize)
@@ -116,7 +115,6 @@ class CenteredShape extends Layer{
     fill(this.layerColor)
     noStroke()
     push()
-    // translate(width/2, height/2)
     if(this.randomShape < 0.1){
       rect(0,0,this.shapeSize * 2, this.shapeSize * 2)
     } else if(this.randomShape >= 0.1 && this.randomShape < 0.6){
@@ -149,12 +147,10 @@ class RingOfShapes extends Layer{
     }
   }
   render(){
-    // console.log(this)
     stroke(this.layerColor)
     fill(this.fillColor)
     strokeWeight(this.weight)
     push()
-    // translate(width/2, height/2)
     for(let i=0; i<this.numShapes; i++){
       if(this.randomShape < 0.33){
         ellipse(0, this.center, this.radius, this.radius)
@@ -172,8 +168,11 @@ class RingOfShapes extends Layer{
 class SteppedHexagon extends Layer{
   constructor(){
     super()
-    this.numSteps = randomSelectTwo() ? this.stepsOut : this.stepsOut * 1.25
-    this.centerOffset = (CRYSTAL_SIZE / 2) * 0.15
+    STEPPEDHEX_STEPSOUT_MULTI > 5 ? STEPPEDHEX_STEPSOUT_MULTI = 5 : STEPPEDHEX_STEPSOUT_MULTI
+    this.numSteps = randomSelectTwo() ? this.stepsOut : this.stepsOut * STEPPEDHEX_STEPSOUT_MULTI
+    // control user input to avoid breaking design pattern
+    STEPPEDHEX_CENTEROFFSET > 1 ? STEPPEDHEX_CENTEROFFSET = 1 : STEPPEDHEX_CENTEROFFSET
+    this.centerOffset = (CRYSTAL_SIZE / 2) * STEPPEDHEX_CENTEROFFSET
     this.singleStep = ((CRYSTAL_SIZE /2) - this.centerOffset) / this.numSteps
     this.weight = randomSelectTwo() ? this.thinStroke : this.thickStroke
   }
@@ -182,7 +181,6 @@ class SteppedHexagon extends Layer{
     noFill()
     strokeWeight(this.weight)
     push()
-    // translate(width/2, height/2)
     rotate(this.angle / 2)
     for(let i = 1; i < this.numSteps + 1; i++){
       hexagon(0, 0, this.centerOffset + (i * this.singleStep))

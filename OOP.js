@@ -23,7 +23,7 @@ class OutlineShape extends Layer{
     stroke(this.layerColor)
     strokeWeight(this.weight)
     push()
-    translate(width/2, height/2)
+    // translate(width/2, height/2)
     if(this.hexagonTrue){
       hexagon(0,0, CRYSTAL_SIZE/2)
     } else{
@@ -50,7 +50,7 @@ class SimpleLines extends Layer{
     stroke(this.layerColor)
     strokeWeight(this.weight)
     push()
-      translate(width/2, height/2)
+      // translate(width/2, height/2)
       
       for(let i = 0; i < this.numShapes; i++){
         line(this.start * this.step, 0 , this.stop * this.step, 0)
@@ -72,7 +72,7 @@ class Circles extends Layer{
     stroke(this.layerColor)
     strokeWeight(1)
     push()
-      translate(width/2, height/2)
+      // translate(width/2, height/2)
       
       for(let i = 0; i <= this.numShapes; i++){
         ellipse(this.position, 0, this.shapeSize, this.shapeSize)
@@ -94,7 +94,7 @@ class DottedLines extends Layer{
     fill(this.layerColor)
     noStroke()
     push()
-    translate(width/2, height/2)
+    // translate(width/2, height/2)
     for(let i = 0; i <= this.numShapes; i++){
       for(let x = this.centerOffset; x < CRYSTAL_SIZE / 2; x += this.singleStep){
         rect(x, 0, this.shapeSize, this.shapeSize)
@@ -115,7 +115,7 @@ class CenteredShape extends Layer{
     fill(this.layerColor)
     noStroke()
     push()
-    translate(width/2, height/2)
+    // translate(width/2, height/2)
     if(this.randomShape < 0.1){
       rect(0,0,this.shapeSize * 2, this.shapeSize * 2)
     } else if(this.randomShape >= 0.1 && this.randomShape < 0.6){
@@ -153,7 +153,7 @@ class RingOfShapes extends Layer{
     fill(this.fillColor)
     strokeWeight(this.weight)
     push()
-    translate(width/2, height/2)
+    // translate(width/2, height/2)
     for(let i=0; i<this.numShapes; i++){
       if(this.randomShape < 0.33){
         ellipse(0, this.center, this.radius, this.radius)
@@ -181,7 +181,7 @@ class SteppedHexagon extends Layer{
     noFill()
     strokeWeight(this.weight)
     push()
-    translate(width/2, height/2)
+    // translate(width/2, height/2)
     rotate(this.angle / 2)
     for(let i = 1; i < this.numSteps + 1; i++){
       hexagon(0, 0, this.centerOffset + (i * this.singleStep))

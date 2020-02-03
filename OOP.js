@@ -13,24 +13,22 @@ class Layer{
 }
 
 // Inheritance
-class Circles extends Layer{
+class OutlineShape extends Layer{
   constructor(){
     super()
-    this.shapeSize = (CRYSTAL_SIZE/2) * 0.93
-    this.position = (CRYSTAL_SIZE/2) - (this.shapeSize/2)
-  }
-  // create a render function
+    this.weight = randomSelectTwo() ? this.thinStroke : this.thickStroke
+    this.hexagonTrue = randomSelectTwo()
+  } 
   render(){
-    noFill()
     stroke(this.layerColor)
-    strokeWeight(1)
+    strokeWeight(this.weight)
     push()
-      translate(width/2, height/2)
-      
-      for(let i = 0; i <= this.numShapes; i++){
-        ellipse(this.position, 0, this.shapeSize, this.shapeSize)
-        rotate(this.angle)
-      }
+    translate(width/2, height/2)
+    if(this.hexagonTrue){
+      hexagon(0,0, CRYSTAL_SIZE/2)
+    } else{
+      ellipse(0,0,CRYSTAL_SIZE, CRYSTAL_SIZE)
+    }
     pop()
   }
 }
@@ -62,22 +60,24 @@ class SimpleLines extends Layer{
   }
 }
 
-class OutlineShape extends Layer{
+class Circles extends Layer{
   constructor(){
     super()
-    this.weight = randomSelectTwo() ? this.thinStroke : this.thickStroke
-    this.hexagonTrue = randomSelectTwo()
-  } 
+    this.shapeSize = (CRYSTAL_SIZE/2) * 0.93
+    this.position = (CRYSTAL_SIZE/2) - (this.shapeSize/2)
+  }
+  // create a render function
   render(){
+    noFill()
     stroke(this.layerColor)
-    strokeWeight(this.weight)
+    strokeWeight(1)
     push()
-    translate(width/2, height/2)
-    if(this.hexagonTrue){
-      hexagon(0,0, CRYSTAL_SIZE/2)
-    } else{
-      ellipse(0,0,CRYSTAL_SIZE, CRYSTAL_SIZE)
-    }
+      translate(width/2, height/2)
+      
+      for(let i = 0; i <= this.numShapes; i++){
+        ellipse(this.position, 0, this.shapeSize, this.shapeSize)
+        rotate(this.angle)
+      }
     pop()
   }
 }
@@ -109,7 +109,7 @@ class CenteredShape extends Layer{
   constructor(){
     super()
     this.randomShape = random(1)
-    this.shapeSize = floor(random(this.stepsOut / 2, this.stepsOut)) * this.singleStep
+    this.shapeSize = floor(random(this.stepsOut / 2, this.stepsOut - 2)) * this.singleStep
   }
   render(){
     fill(this.layerColor)

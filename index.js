@@ -1,12 +1,24 @@
 // GENERATIVE SYSTEM || RULE BASED DECISION MAKING
 const 
-  CRYSTAL_SIZE = 500
-  SIDES = 6
+  CRYSTAL_SIZE = 150
+  SIDES        = 6
+  
+  // Layout Grid
+  MARGIN  = CRYSTAL_SIZE / 2
+  COLUMNS = 6
+  ROWS    = 3
+  PADDING = CRYSTAL_SIZE * 0.2
+  GRIDBOX = CRYSTAL_SIZE + PADDING
+  START = (CRYSTAL_SIZE / 2) + MARGIN
 let 
   PALETTE = []
+  ALL_CRYSTALS = []
 
 function setup() {
-  createCanvas(530,530, SVG)
+  const 
+    totalX = START + GRIDBOX * COLUMNS
+    totalY = START + GRIDBOX * ROWS
+  createCanvas(totalX,totalY, SVG)
   
   PALETTE = [ 
     color(255,52,154,250), // pink 
@@ -23,6 +35,15 @@ function setup() {
 }
 
 function draw() {
-  const oneCrystal = new Crystal(width/2,height/2)
-  oneCrystal.render()
+  // background('teal')
+  for(let x = 0; x < COLUMNS; x++){
+    for(let y = 0; y < ROWS; y++){
+      const 
+        posX = START + (x * GRIDBOX)
+        posY = START + (y * GRIDBOX)
+        ALL_CRYSTALS.push(new Crystal(posX, posY))
+    }
+  }
+
+  ALL_CRYSTALS.forEach(crystal => crystal.render())
 }

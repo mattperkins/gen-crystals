@@ -17,10 +17,24 @@ function setup() {
 }
 
 function draw() {
-  testLines() 
+  // testLines() 
+  outlineShape()
+}
+
+function outlineShape(){
+  const strokeColor = getRandomFromPalette()
+  const weight = randomSelectTwo() ? 1 : 3
+  
+  stroke(strokeColor)
+  strokeWeight(weight)
+  push()
+  translate(width/2, height/2)
+  ellipse(0,0,CRYSTAL_SIZE, CRYSTAL_SIZE)
+  pop()
 }
 
 function testLines(){
+  // strokeWeight(3)
   let numShapes = randomSelectTwo() ? SIDES : SIDES * 2
   const strokeColor = getRandomFromPalette()
 
@@ -54,3 +68,4 @@ function getRandomFromPalette(){
   const rando2 = floor(random(0, PALETTE.length)) 
   return PALETTE[rando2]
 }
+

@@ -22,32 +22,8 @@ function setup() {
 function draw() {
 // OOP
   picker()
-  
-  // const layer = new Layer()
-  // console.log(layer)
-
-  // const circles = new Circles()
-  // circles.render()  
-  
-  // const simpleLines = new SimpleLines()
-  // simpleLines.render()  
-  
-  // const outlineShape = new OutlineShape()
-  // outlineShape.render()  
-
-
-// FUNCTIONAL
-  // funcPicker()
-
-  // circles()
-  // simpleLines()
-  // outlineShape()
-
-  
   // testLines() 
-  
-} // \draw
-
+} 
 
 // randomise shape/OOP
 function picker(){

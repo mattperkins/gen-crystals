@@ -17,10 +17,26 @@ function setup() {
 }
 
 function draw() {
-  circles()
+  // circles()
   // simpleLines()
   // outlineShape()
-  testLines() 
+  // testLines() 
+
+  let picker = random(1)
+  if(picker > 0.3){
+    outlineShape()
+  }
+
+  picker = random(1)
+  if(picker > 0.5){
+    simpleLines()
+  }
+
+  picker = random(1)
+  if(picker > 0.8){
+    circles()
+  }
+
 }
 
 function circles(){
@@ -30,6 +46,7 @@ function circles(){
   const position = (CRYSTAL_SIZE/2) - (shapeSize/2)
   const strokeColor = getRandomFromPalette()
 
+  noFill()
   stroke(strokeColor)
   strokeWeight(1)
   push()
@@ -41,6 +58,7 @@ function circles(){
     }
   pop()
 }
+
 
 function simpleLines(){
   const stepsOut = 8
@@ -67,6 +85,7 @@ function simpleLines(){
   pop()
 }
 
+
 function outlineShape(){
   const strokeColor = getRandomFromPalette()
   const weight = randomSelectTwo() ? 1 : 3
@@ -83,6 +102,7 @@ function outlineShape(){
   }
   pop()
 }
+
 
 function testLines(){
   let numShapes = randomSelectTwo() ? SIDES : SIDES * 2

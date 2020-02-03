@@ -29,6 +29,20 @@ function draw() {
 function picker(){
   let picker = random(1)
 
+  if(picker > 0.1){
+    layers.push(new DottedLines())
+  }
+  if(picker > 0.2){
+    layers.push(new CenteredShape())
+  }
+  if(picker > 0.1){
+    layers.push(new RingOfShapes())
+  }
+  if(picker > 0.2){
+    layers.push(new SteppedHexagon())
+  }
+
+
   if(picker > 0.3){
     layers.push(new OutlineShape())
   }

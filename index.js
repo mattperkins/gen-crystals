@@ -57,20 +57,3 @@ function testLines(){
     }
   pop()
 }
-
-function randomSelectTwo(){
-  const rando = random(1)
-  let numShapes
-  // configure rule
-  if(rando > 0.5){
-    return true
-  } else{
-    return false
-  }
-}
-
-function getRandomFromPalette(){
-  const rando2 = floor(random(0, PALETTE.length)) 
-  return PALETTE[rando2]
-}
-

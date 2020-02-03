@@ -105,7 +105,7 @@ const layerConstructors = [
   },
   {
     name: 'Test Lines',
-    init: () => new TestLines(),
-    weight: 1
+    init: () => testLines(),
+    weight: 1 // off
   }
 ]

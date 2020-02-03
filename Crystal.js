@@ -1,3 +1,4 @@
+
 class Crystal{
   constructor(posX,posY){
     this.x = posX

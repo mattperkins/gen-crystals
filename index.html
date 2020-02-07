@@ -17,12 +17,62 @@
     <script src="helpers.js"></script>
 
     <style> 
-    html{overflow: hidden;} 
-    body {padding: 0; margin: 0; background-color: rgba(255,255,100,0.1);}
-    canvas {vertical-align: top;}
+    html{
+      overflow: hidden;
+    } 
+    body{
+      padding: 0; 
+      margin: 0; 
+      /* background-color: rgba(247,247,247,0.1); */
+      /* background-color: rgba(255,255,150,0.1); */
+      background-color: rgba(255,255,100,0.1);
+    }
+    .overlay{
+      opacity: .65;  
+      /* tweak to taste // .39 */
+      background-image: url('noise.png');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      position: relative;
+      height: 100vh;
+      z-index: 1;
+    }
+    canvas{
+      vertical-align: top;
+      position: absolute;
+      z-index: -10;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+    button{
+      position: absolute;
+      display: inline-block;
+      z-index: 10;
+    }
+    button#toggle{
+      position: absolute;
+      left: 150px;
+      display: inline-block;
+      z-index: 10;
+    }
     </style>
   </head>
   <body>
+    <button onClick="window.location.reload()">Generate New Patterns</button>
+    <button id="toggle" onclick="toggleOverlay()">Toggle Overlay</button>
+    <!-- add texture overlay -->
+    <div id="overlay" class="overlay"></div>
+    
+    <script>
+      function toggleOverlay(){
+        var el = document.getElementById('overlay')
+          el.classList.toggle('overlay')
+      }
+    </script>
+    
     <!-- saved document has errors? -->
     <!-- <button onClick='saveSVG()'>Save as SVG</button> -->
   </body>

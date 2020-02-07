@@ -34,6 +34,17 @@ const layerConstructors = [
     init: () => new SteppedHexagon(),
     weight: STEPPEDHEXAGON_WEIGHT
   },
+  {
+    name: 'Triangler',
+    init: () => new Triangler(),
+    weight: TRIANGLER_WEIGHT
+  },
+  // *** -> new shape 3.2.20 <- ***
+  {
+    name: 'Triangler2',
+    init: () => new Triangler(),
+    weight: TRIANGLER2_WEIGHT
+  },
   // Development Only
   {
     name: 'Test Lines',

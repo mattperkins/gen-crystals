@@ -1,13 +1,13 @@
 // GENERATIVE SYSTEM || RULE BASED DECISION MAKING
 const 
-  CRYSTAL_SIZE = 150
+  CRYSTAL_SIZE = 450 // 150
   // Layout Grid
   MARGIN  = CRYSTAL_SIZE / 2
-  COLUMNS = 6
-  ROWS    = 3
-  PADDING = CRYSTAL_SIZE * 0.2
+  COLUMNS = 2 // 6
+  ROWS    = 1 // 3
+  PADDING = CRYSTAL_SIZE * 0.4 // 0.2
   GRIDBOX = CRYSTAL_SIZE + PADDING
-  START = (CRYSTAL_SIZE / 2) + MARGIN
+  START = (CRYSTAL_SIZE / 6) + MARGIN // CRYSTAL_SIZE / 2
 let 
   PALETTE = null
   ALL_CRYSTALS = []
@@ -24,8 +24,11 @@ function setup() {
     color(COLOUR2),
     color(COLOUR3), 
     color(COLOUR4), 
-    // color(COLOUR5), 
-    color(COLOUR6) 
+    color(COLOUR5), 
+    color(COLOUR6), 
+    color(COLOUR7),
+    color(COLOUR8), 
+    color(COLOUR9) 
   ]
 
   noLoop()

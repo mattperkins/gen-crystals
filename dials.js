@@ -1,16 +1,16 @@
 const 
-  SIDES                      = 50      // 6 -> TBD: add max @50
+  SIDES                      = 10      // 6 -> TBD: add max @50
   LAYER_ANGLE                = 360    // 360
-  STEPSOUT                   = 16      // 8 -> TBD: add max @16
-  THINSTROKE                 = .1      // 1
+  STEPSOUT                   = 10      // 8 -> TBD: add max @16
+  THINSTROKE                 = 1      // 1
   THICKSTROKE                = 1      // 3 -> TBD: add max @20
 
   SIMPLELINES_ANGLE          = 360    // 360
-  SIMPLELINES_STEPSOUT_MULTI = 0.25   // 1.25
+  SIMPLELINES_STEPSOUT_MULTI = 1.25   // 1.25
   SIMPLELINES_SIDES_MULTI    = 20     // 2 (max = 20)
   DOTTEDLINES_ANGLE          = 360    // 360
   DOTTEDLINES_SIDES_MULTI    = 5     // 2 (max = 10)
-  DOTTEDLINES_SHAPESIZE      = 3      // 3 (max = 40)
+  DOTTEDLINES_SHAPESIZE      = 40      // 3 (max = 40)
   STEPPEDHEX_STEPSOUT_MULTI  = 1.5      // 1.25 (max = 5)
 
   CIRCLES_SHAPESIZE_MULTI    = 1.1    // 0.93 (max = 2.1)

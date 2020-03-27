@@ -18,12 +18,13 @@ const
   STEPPEDHEX_CENTEROFFSET    = 0.15   // 0.15 (max = 1) 
 
                              // 1 = MUTE / DONT DISPLAY SHAPE
-  OUTLINESHAPE_WEIGHT        = 0.3    
+  OUTLINESHAPE_WEIGHT        = 0.6    
   SIMPLELINES_WEIGHT         = 0.4    
   CIRCLES_WEIGHT             = 0.5    
   DOTTEDLINES_WEIGHT         = 0.3    
   CENTEREDSHAPE_WEIGHT       = 0.1    
   RINGOFSHAPES_WEIGHT        = 0.6    
+  RINGOFSHAPES2_WEIGHT       = 0.1    
   STEPPEDHEXAGON_WEIGHT      = 0.8    
-  TRIANGLER_WEIGHT           = 0.9
+  TRIANGLER_WEIGHT           = 0.1
   TRIANGLER2_WEIGHT          = 0.2

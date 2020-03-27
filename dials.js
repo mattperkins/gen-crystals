@@ -1,5 +1,5 @@
 const 
-  SIDES                      = 6      // 6 -> TBD: add max @50
+  SIDES                      = 50      // 6 -> TBD: add max @50
   LAYER_ANGLE                = 360    // 360
   STEPSOUT                   = 16      // 8 -> TBD: add max @16
   THINSTROKE                 = .1      // 1

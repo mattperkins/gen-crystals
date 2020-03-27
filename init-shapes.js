@@ -29,17 +29,23 @@ const layerConstructors = [
     init: () => new RingOfShapes(),
     weight: RINGOFSHAPES_WEIGHT
   },
+  // *** -> new duplicate added 27.3.20 <- ***
+  {
+    name: 'Ring Of Shape2',
+    init: () => new RingOfShapes(),
+    weight: RINGOFSHAPES2_WEIGHT
+  },
   {
     name: 'Stepped Hexagon',
     init: () => new SteppedHexagon(),
     weight: STEPPEDHEXAGON_WEIGHT
   },
+  // *** -> new shape 3.2.20 <- ***
   {
     name: 'Triangler',
     init: () => new Triangler(),
     weight: TRIANGLER_WEIGHT
   },
-  // *** -> new shape 3.2.20 <- ***
   {
     name: 'Triangler2',
     init: () => new Triangler(),
